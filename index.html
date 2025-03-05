@@ -11,7 +11,7 @@
             text-align: center;
             color: #ff007f;
             transition: all 1s ease;
-            height: 200vh; /* Increase the height to allow scrolling */
+            height: 300vh; /* Increased height to ensure you can scroll down */
         }
         h1 {
             font-size: 4em;
@@ -59,6 +59,13 @@
         .sad-world p {
             font-size: 1.5em;
         }
+        .extra-content {
+            height: 150px; /* Extra space at the bottom for scrolling */
+            background-color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.2em;
+        }
     </style>
 </head>
 <body>
@@ -67,10 +74,16 @@
     <button class="wacky-button" onclick="randomAlert()">Click Me!</button>
     <p>Why did the chicken cross the road? To get to the wacky side!</p>
 
+    <!-- Sad and Decrepit World Section -->
     <div class="sad-world">
         <p id="sadText1">Is there any hope left in this world?</p>
         <p id="sadText2">Sometimes it feels like everything is falling apart.</p>
         <p id="sadText3">I wonder if there's meaning in any of this.</p>
+    </div>
+
+    <!-- Extra content at the bottom of the page to make sure scrolling works -->
+    <div class="extra-content">
+        <p>You have reached the bottom of the page. Keep scrolling to continue the journey.</p>
     </div>
 
     <script>
@@ -95,20 +108,36 @@
             const sadText3 = document.getElementById('sadText3');
             const sadWorld = document.querySelector('.sad-world');
             
+            // Changing the style when scrolling down
             if (scrollPosition > 300) {
                 document.body.style.backgroundColor = '#2c2c2c';  // Darken the background
                 document.body.style.color = '#aaa';  // Lighten text color for a sad tone
                 sadText1.style.opacity = 1;  // Make first sad text appear
+            } else {
+                document.body.style.backgroundColor = '#ffcc00';  // Reset to original background color
+                document.body.style.color = '#ff007f';  // Reset text color
+                sadText1.style.opacity = 0;  // Hide sad text
             }
+
             if (scrollPosition > 600) {
                 sadText2.style.opacity = 1;  // Make second sad text appear
+            } else {
+                sadText2.style.opacity = 0;  // Hide second sad text
             }
+
             if (scrollPosition > 1000) {
                 sadText3.style.opacity = 1;  // Make third sad text appear
                 document.body.style.fontFamily = "'Times New Roman', serif";  // Change font to something darker
+            } else {
+                sadText3.style.opacity = 0;  // Hide third sad text
+                document.body.style.fontFamily = "'Comic Sans MS', cursive, sans-serif";  // Reset font
             }
+
+            // Show the sad world section when scrolled down far enough
             if (scrollPosition > 1500) {
-                sadWorld.style.opacity = 1;  // Show the sad world section when scrolled down far enough
+                sadWorld.style.opacity = 1;  // Show the sad world section
+            } else {
+                sadWorld.style.opacity = 0;  // Hide the sad world section
             }
         };
     </script>
