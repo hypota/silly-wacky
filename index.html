@@ -10,6 +10,7 @@
             font-family: 'Comic Sans MS', cursive, sans-serif;
             text-align: center;
             color: #ff007f;
+            transition: all 1s ease;
         }
         h1 {
             font-size: 4em;
@@ -35,20 +36,48 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        .sad-text {
+            font-size: 1.5em;
+            color: #555;
+            text-align: left;
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            transition: opacity 0.5s ease;
+            opacity: 0;
+        }
+        .sad-world {
+            background-color: #2c2c2c;
+            color: #aaa;
+            text-align: left;
+            font-family: 'Times New Roman', serif;
+            padding: 50px;
+            margin-top: 100px;
+            transition: all 1s ease;
+        }
+        .sad-world p {
+            font-size: 1.5em;
+        }
     </style>
 </head>
 <body>
     <h1>Welcome to the Silly and Wacky World!</h1>
-    <img src="hawk tuah.webp" alt="Silly Image" class="silly-image">
+    <img src="https://example.com/silly-image.png" alt="Silly Image" class="silly-image">
     <button class="wacky-button" onclick="randomAlert()">Click Me!</button>
-    <p>Why did the chicken cross the road? Because his pecker's on its head!</p>
+    <p>Why did the chicken cross the road? To get to the wacky side!</p>
+
+    <div class="sad-world">
+        <div class="sad-text" id="sadText1">Is there any hope left in this world?</div>
+        <div class="sad-text" id="sadText2">Sometimes it feels like everything is falling apart.</div>
+        <div class="sad-text" id="sadText3">I wonder if there's meaning in any of this.</div>
+    </div>
 
     <script>
         function randomAlert() {
             const messages = [
                 "You clicked the wacky button! 🎉",
                 "Wacky alert activated! 🤪",
-                "Oops! That button is too wacky! Who am I kidding! Nothing is too wacky! 😂",
+                "Oops! That button is too wacky! 😂",
                 "Hold on, the button is doing a dance! 💃",
                 "You are now officially wackified! 🥳",
                 "Button clicked! Now we're in a wacky world! 🌎"
@@ -56,6 +85,30 @@
             const randomIndex = Math.floor(Math.random() * messages.length);
             alert(messages[randomIndex]);
         }
+
+        // Scroll detection to trigger the sad world effect
+        window.onscroll = function() {
+            const scrollPosition = window.scrollY;
+            const sadText1 = document.getElementById('sadText1');
+            const sadText2 = document.getElementById('sadText2');
+            const sadText3 = document.getElementById('sadText3');
+            
+            if (scrollPosition > 300) {
+                document.body.style.backgroundColor = '#2c2c2c';  // Darken the background
+                document.body.style.color = '#aaa';  // Lighten text color for a sad tone
+                sadText1.style.opacity = 1;  // Make sad text appear
+            }
+            if (scrollPosition > 600) {
+                sadText2.style.opacity = 1;
+            }
+            if (scrollPosition > 1000) {
+                sadText3.style.opacity = 1;
+                document.body.style.fontFamily = "'Times New Roman', serif";  // Change font to something darker
+            }
+            if (scrollPosition > 1500) {
+                document.querySelector('.sad-world').style.opacity = 1;
+            }
+        };
     </script>
 </body>
 </html>
