@@ -13,6 +13,7 @@
             transition: all 1s ease;
             height: 400vh; /* Increased height to ensure you can scroll down */
             position: relative;
+            margin: 0;
         }
         h1 {
             font-size: 4em;
@@ -46,11 +47,12 @@
             text-align: center;
             font-family: 'Times New Roman', serif;
             padding: 50px;
-            position: absolute;
+            position: fixed;
             bottom: 0;
             width: 100%;
             opacity: 0; /* Initially hidden */
             transition: all 1s ease;
+            z-index: 10; /* Ensures it's on top of the rest of the content */
         }
         .sad-world h1 {
             font-size: 4em;
@@ -87,4 +89,59 @@
     <p>Why did the chicken cross the road? To get to the wacky side!</p>
 
     <!-- Sad and Decrepit World Section (Initially Hidden) -->
-    <div class="sad-world
+    <div class="sad-world">
+        <h1>Welcome to the Sad and Decrepit World...</h1>
+        <img src="https://example.com/silly-image.png" alt="Sad Image" class="silly-image">
+        <button class="wacky-button" onclick="randomAlert()">Click Me...</button>
+        <p>Why did the chicken cross the road? To get to the sad side...</p>
+    </div>
+
+    <!-- Extra content at the bottom of the page to make sure scrolling works -->
+    <div class="extra-content">
+        <p>You have reached the bottom of the page. Keep scrolling to continue the journey.</p>
+    </div>
+
+    <script>
+        function randomAlert() {
+            const messages = [
+                "You clicked the wacky button! 🎉",
+                "Wacky alert activated! 🤪",
+                "Oops! That button is too wacky! 😂",
+                "Hold on, the button is doing a dance! 💃",
+                "You are now officially wackified! 🥳",
+                "Button clicked! Now we're in a wacky world! 🌎"
+            ];
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            alert(messages[randomIndex]);
+        }
+
+        // Scroll detection to trigger the sad world effect
+        window.onscroll = function() {
+            const scrollPosition = window.scrollY;
+            const sadWorld = document.querySelector('.sad-world');
+            
+            // Changing the style when scrolling down
+            if (scrollPosition > 300) {
+                document.body.style.backgroundColor = '#2c2c2c';  // Darken the background
+                document.body.style.color = '#aaa';  // Lighten text color for a sad tone
+            } else {
+                document.body.style.backgroundColor = '#ffcc00';  // Reset to original background color
+                document.body.style.color = '#ff007f';  // Reset text color
+            }
+
+            if (scrollPosition > 600) {
+                document.body.style.fontFamily = "'Times New Roman', serif";  // Change font to something darker
+            } else {
+                document.body.style.fontFamily = "'Comic Sans MS', cursive, sans-serif";  // Reset font
+            }
+
+            // Show the sad world section when scrolled down far enough
+            if (scrollPosition > 2500) {
+                sadWorld.style.opacity = 1;  // Show the sad world section
+            } else {
+                sadWorld.style.opacity = 0;  // Hide the sad world section
+            }
+        };
+    </script>
+</body>
+</html>
