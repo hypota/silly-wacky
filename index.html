@@ -11,7 +11,7 @@
             text-align: center;
             color: #ff007f;
             transition: all 1s ease;
-            height: 300vh; /* Increased height to ensure you can scroll down */
+            height: 400vh; /* Increased height to ensure you can scroll down */
         }
         h1 {
             font-size: 4em;
@@ -68,7 +68,7 @@
             opacity: 0.5;
         }
         .extra-content {
-            height: 150px; /* Extra space at the bottom for scrolling */
+            height: 300px; /* Increased height to ensure more scrollable space */
             background-color: #ffffff;
             padding: 20px;
             text-align: center;
@@ -130,12 +130,7 @@
             }
 
             // Show the sad world section when scrolled down far enough
-            if (scrollPosition > 1500) {
+            if (scrollPosition > 2500) {
                 sadWorld.style.opacity = 1;  // Show the sad world section
             } else {
-                sadWorld.style.opacity = 0;  // Hide the sad world section
-            }
-        };
-    </script>
-</body>
-</html>
+ 
