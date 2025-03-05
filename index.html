@@ -1,0 +1,48 @@
+# Silly and Wacky Website
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silly and Wacky Website</title>
+    <style>
+        body {
+            background-color: #ffcc00;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            color: #ff007f;
+        }
+        h1 {
+            font-size: 4em;
+            text-shadow: 2px 2px #00ff00;
+        }
+        .wacky-button {
+            background-color: #00ccff;
+            border: 2px dashed #ff007f;
+            padding: 20px;
+            font-size: 2em;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .wacky-button:hover {
+            transform: scale(1.1);
+        }
+        .silly-image {
+            width: 300px;
+            height: auto;
+            animation: spin 5s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Silly and Wacky World!</h1>
+    <img src="https://example.com/silly-image.png" alt="Silly Image" class="silly-image">
+    <button class="wacky-button" onclick="alert('You clicked the wacky button!')">Click Me!</button>
+    <p>Why did the chicken cross the road? To get to the wacky side!</p>
+</body>
+</html>
