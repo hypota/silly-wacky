@@ -1,5 +1,3 @@
-# Silly and Wacky Website
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +40,22 @@
 <body>
     <h1>Welcome to the Silly and Wacky World!</h1>
     <img src="https://example.com/silly-image.png" alt="Silly Image" class="silly-image">
-    <button class="wacky-button" onclick="alert('You clicked the wacky button!')">Click Me!</button>
-    <p>Why did the chicken cross the road? BECAUSE ITS PECKER IS ON ITS HEAD!</p>
+    <button class="wacky-button" onclick="randomAlert()">Click Me!</button>
+    <p>Why did the chicken cross the road? To get to the wacky side!</p>
+
+    <script>
+        function randomAlert() {
+            const messages = [
+                "You clicked the wacky button! 🎉",
+                "Wacky alert activated! 🤪",
+                "Oops! That button is too wacky! Who am I kidding! Nothing is too wacky! 😂",
+                "Hold on, the button is doing a dance! 💃",
+                "You are now officially wackified! 🥳",
+                "Button clicked! Now we're in a wacky world! 🌎"
+            ];
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            alert(messages[randomIndex]);
+        }
+    </script>
 </body>
 </html>
