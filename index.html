@@ -37,27 +37,35 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        .sad-text {
-            font-size: 1.5em;
-            color: #555;
-            text-align: left;
-            position: fixed;
-            left: 10%;
-            transition: opacity 0.5s ease;
-            opacity: 0;
-        }
+
+        /* Sad world styles */
         .sad-world {
             background-color: #2c2c2c;
             color: #aaa;
-            text-align: left;
+            text-align: center;
             font-family: 'Times New Roman', serif;
             padding: 50px;
-            margin-top: 200px;
             opacity: 0; /* Initially hidden */
             transition: all 1s ease;
         }
-        .sad-world p {
-            font-size: 1.5em;
+        .sad-world h1 {
+            font-size: 4em;
+            text-shadow: 2px 2px #555;
+        }
+        .sad-world .wacky-button {
+            background-color: #555;
+            border: 2px dashed #aaa;
+            color: #aaa;
+            transition: transform 0.2s;
+        }
+        .sad-world .wacky-button:hover {
+            transform: scale(1.1);
+        }
+        .sad-world .silly-image {
+            animation: none;
+            width: 300px;
+            height: auto;
+            opacity: 0.5;
         }
         .extra-content {
             height: 150px; /* Extra space at the bottom for scrolling */
@@ -74,11 +82,12 @@
     <button class="wacky-button" onclick="randomAlert()">Click Me!</button>
     <p>Why did the chicken cross the road? To get to the wacky side!</p>
 
-    <!-- Sad and Decrepit World Section -->
+    <!-- Sad and Decrepit World Section (Initially Hidden) -->
     <div class="sad-world">
-        <p id="sadText1">Is there any hope left in this world?</p>
-        <p id="sadText2">Sometimes it feels like everything is falling apart.</p>
-        <p id="sadText3">I wonder if there's meaning in any of this.</p>
+        <h1>Welcome to the Sad and Decrepit World...</h1>
+        <img src="https://example.com/silly-image.png" alt="Sad Image" class="silly-image">
+        <button class="wacky-button" onclick="randomAlert()">Click Me...</button>
+        <p>Why did the chicken cross the road? To get to the sad side...</p>
     </div>
 
     <!-- Extra content at the bottom of the page to make sure scrolling works -->
@@ -103,33 +112,20 @@
         // Scroll detection to trigger the sad world effect
         window.onscroll = function() {
             const scrollPosition = window.scrollY;
-            const sadText1 = document.getElementById('sadText1');
-            const sadText2 = document.getElementById('sadText2');
-            const sadText3 = document.getElementById('sadText3');
             const sadWorld = document.querySelector('.sad-world');
             
             // Changing the style when scrolling down
             if (scrollPosition > 300) {
                 document.body.style.backgroundColor = '#2c2c2c';  // Darken the background
                 document.body.style.color = '#aaa';  // Lighten text color for a sad tone
-                sadText1.style.opacity = 1;  // Make first sad text appear
             } else {
                 document.body.style.backgroundColor = '#ffcc00';  // Reset to original background color
                 document.body.style.color = '#ff007f';  // Reset text color
-                sadText1.style.opacity = 0;  // Hide sad text
             }
 
             if (scrollPosition > 600) {
-                sadText2.style.opacity = 1;  // Make second sad text appear
-            } else {
-                sadText2.style.opacity = 0;  // Hide second sad text
-            }
-
-            if (scrollPosition > 1000) {
-                sadText3.style.opacity = 1;  // Make third sad text appear
                 document.body.style.fontFamily = "'Times New Roman', serif";  // Change font to something darker
             } else {
-                sadText3.style.opacity = 0;  // Hide third sad text
                 document.body.style.fontFamily = "'Comic Sans MS', cursive, sans-serif";  // Reset font
             }
 
